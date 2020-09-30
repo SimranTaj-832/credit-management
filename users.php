@@ -110,6 +110,41 @@ if (mysqli_connect_errno()) {
                             </tr>";
                             }
                         }
+                            
+                        $results;
+                        $count;
+                        $query="UPDATE `userinfo` SET `currentcredit`=currentcredit-'$id3' WHERE id='$id1'";
+                        $results = mysqli_query($conn,$query);
+                        $count  = mysqli_num_rows($results);
+                        if($count>0){
+                            foreach($results as $row){
+                                echo "<tr>
+                                <td>". $row['id']. "</td>
+                                <td>".  $row['name'] ."</td>
+                                <td>". $row['email'] ."</td>
+                                <td>". $row['currentcredit'] ."</td>
+                                
+                            </tr>";
+                            }
+                        }
+
+                        $results;
+                        $count;
+                        $query="UPDATE `userinfo` SET `currentcredit`=currentcredit+'$id3' WHERE id='$id2 '";
+                        $results = mysqli_query($conn,$query);
+                        $count  = mysqli_num_rows($results);
+                        if($count>0){
+                            foreach($results as $row){
+                                echo "<tr>
+                                <td>". $row['id']. "</td>
+                                <td>".  $row['name'] ."</td>
+                                <td>". $row['email'] ."</td>
+                                <td>". $row['currentcredit'] ."</td>
+                                
+                            </tr>";
+                            }
+                        }
+                            
                         echo "<script> alert('TRANSACTION SUCCESSFUL!!');window.location='trans.php'</script>";
                         }
                         ?>
